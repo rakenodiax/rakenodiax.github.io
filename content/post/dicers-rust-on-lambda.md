@@ -159,7 +159,7 @@ impl<'a> Iterator for DictionaryIterator<'a> {
         let word_count = self.words.len();
         let index = self.rng.gen_range(0, word_count);
 
-        self.words.iter().skip(index).next().map(|s| s.as_str())
+        self.words.iter().nth(index).map(|s| s.as_str())
     }
 }
 {{< / highlight >}}
@@ -368,4 +368,6 @@ $ cat output.json
 {"phrase":"heading-reimburse-preformed-pledge-appliance"}
 {{< / highlight >}}
 
-And that should be it! I'd love to get feedback on this post: [discuss on Reddit](https://www.reddit.com/r/rust/comments/a2nn4t/making_a_diceware_function_on_aws_lambda/?), [open a GitLab Issue](https://gitlab.com/rakenodiax/rakenodiax.gitlab.io/issues/new) or [send me a tweet](https://twitter.com/rakenodiax).
+And that should be it! The final source can be found [here](https://gitlab.com/rakenodiax/dicers).
+
+I'd love to get feedback on this post: [discuss on Reddit](https://www.reddit.com/r/rust/comments/a2nn4t/making_a_diceware_function_on_aws_lambda/?), [open a GitLab Issue](https://gitlab.com/rakenodiax/rakenodiax.gitlab.io/issues/new) or [send me a tweet](https://twitter.com/rakenodiax).
