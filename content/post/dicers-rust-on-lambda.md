@@ -1,8 +1,8 @@
 ---
 title: "Dice.rs: Rust on Lambda"
 date: 2018-12-02T14:18:59+01:00
-tags: rust, aws
-draft: true
+tags: rust, aws, lambda
+draft: false
 ---
 
 Rust support on AWS Lambda [was recently released](https://github.com/awslabs/aws-lambda-rust-runtime), which seems like as good an opportunity as any to share some code and the solutions to challenges I encountered along the way ☺. I've decided to create a little diceware service, and the `lambda-runtime` crate provides a great API to make this a breeze.
