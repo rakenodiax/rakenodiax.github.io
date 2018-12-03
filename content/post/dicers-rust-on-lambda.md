@@ -368,4 +368,4 @@ $ cat output.json
 {"phrase":"heading-reimburse-preformed-pledge-appliance"}
 {{< / highlight >}}
 
-And that should be it! I'd love to get feedback on this post, either by [GitLab Issue](https://gitlab.com/rakenodiax/rakenodiax.gitlab.io/issues/new) or [Twitter](https://twitter.com/rakenodiax)
+And that should be it! I'd love to get feedback on this post: [discuss on Reddit](https://www.reddit.com/r/rust/comments/a2nn4t/making_a_diceware_function_on_aws_lambda/?), [open a GitLab Issue](https://gitlab.com/rakenodiax/rakenodiax.gitlab.io/issues/new) or [send me a tweet](https://twitter.com/rakenodiax).
