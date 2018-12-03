@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"
+baseURL = "http://rakenodiax.gitlab.io/"
 languageCode = "en-us"
 title = "Kellen Frodelius-Fujimoto"
 theme = "strange-case"
