@@ -1,0 +1,11 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "Kellen Frodelius-Fujimoto"
+theme = "strange-case"
+
+[params]
+author = "Kellen Frodelius-Fujimoto"
+description = "Recently moved from Seattle, WA, USA to Duisburg, NRW. Thoughts on Rust, apps, and life."
+keywords = ["rust", "expat", "nrw"]
+DateFormat = "2 Jan 2006"
+colorScheme = "scheme-slate"

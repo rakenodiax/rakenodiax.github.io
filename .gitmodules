@@ -1,0 +1,15 @@
+[submodule "themes/minos"]
+	path = themes/minos
+	url = https://github.com/carsonip/hugo-theme-minos
+[submodule "themes/cactus-plus"]
+	path = themes/cactus-plus
+	url = https://github.com/nodejh/hugo-theme-cactus-plus.git
+[submodule "themes/black-and-light"]
+	path = themes/black-and-light
+	url = https://github.com/davidhampgonsalves/hugo-black-and-light-theme.git
+[submodule "themes/hello-programmer"]
+	path = themes/hello-programmer
+	url = https://github.com/lubang/hugo-hello-programmer-theme
+[submodule "themes/strange-case"]
+	path = themes/strange-case
+	url = https://github.com/ExchangeRate-API/strange-case.git
