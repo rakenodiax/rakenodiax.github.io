@@ -2,6 +2,7 @@
 title: "Dice.rs: Rust on Lambda"
 date: 2018-12-02T14:18:59+01:00
 tags: rust, aws, lambda
+categories: programming
 draft: false
 ---
 
