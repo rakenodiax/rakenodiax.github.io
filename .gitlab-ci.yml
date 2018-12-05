@@ -1,4 +1,4 @@
-image: monachus/hugo
+image: klakegg/hugo:latest-ext
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
