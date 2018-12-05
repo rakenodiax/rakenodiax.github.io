@@ -1,4 +1,4 @@
-image: klakegg/hugo:latest-ext
+image: klakegg/hugo:ext-debian-onbuild
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
