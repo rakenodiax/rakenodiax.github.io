@@ -1,8 +1,8 @@
 ---
 title: "Dice.rs: Rust on Lambda"
 date: 2018-12-02T14:18:59+01:00
-tags: rust, aws, lambda
-categories: programming
+tags: [ "rust", "aws", "lambda" ]
+categories: [ "programming" ]
 draft: false
 ---
 
@@ -12,14 +12,14 @@ Rust support on AWS Lambda [was recently released](https://github.com/awslabs/aw
 
 We're going to generate a basic crate:
 
-```
+```sh
 $ cargo new dicers --lib && cd dicers
      Created library `dicers` project
 ```
 
 You should see a structure similar to this:
 
-```
+```sh
 $ ls -a
 ./		.git/		Cargo.toml
 ../		.gitignore	src/
@@ -167,10 +167,10 @@ impl<'a> Iterator for DictionaryIterator<'a> {
 
 Don't forget to add `rand` as a dependency to `Cargo.toml`:
 
-{{< highlight toml "linenos=table,linenostart=7">}}
+```toml
 [dependencies]
 rand = "0.6.1"
-{{< / highlight >}}
+```
 
 Using an iterator allows the use of `take` to generate arbitrary numbers of words:
 
@@ -195,10 +195,10 @@ impl Dictionary {
 
 The `lambda-runtime` crate is pretty simple to use. We define a handler function which takes a `serde` deserializable struct and context, returning either a `serde` serializable struct or an error. Let's start by adding the necessary dependencies to `Cargo.toml`:
 
-{{< highlight toml "linenos=table,linenostart=9" >}}
+```toml
 lambda_runtime = "0.1.0"
 serde_derive = "1.0.80"
-{{< / highlight >}}
+```
 
 We'll implement the API in a separate module: create `src/api.rs` and declare the module in `src/lib.rs`:
 
@@ -328,13 +328,13 @@ $ ln -s /usr/local/bin/x86_64-linux-musl-gcc /usr/local/bin/musl-gcc
 
 And add the following configuration file, located at `.cargo/config`:
 
-{{< highlight toml "linenos=table" >}}
+```
 [build]
 target = "x86_64-unknown-linux-musl"
 
 [target.x86_64-unknown-linux-musl]
 linker = "x86_64-linux-musl-gcc"
-{{< / highlight >}}
+```
 
 This will tell `cargo` to build for the appropriate target, and use the linker we just installed. Now we can build and publish the Lambda function using the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html):
 

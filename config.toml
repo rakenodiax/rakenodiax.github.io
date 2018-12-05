@@ -1,11 +1,67 @@
 baseURL = "https://kellenfujimoto.com/"
 languageCode = "en-us"
 title = "Kellen Frodelius-Fujimoto"
-theme = "strange-case"
+theme = "hermit"
+copyright = "&copy; 2018. All rights reserved."
+canonifyurls = true
+paginate = 10
+pygmentsuseclasses = true
+pygmentcodefences = true
+
+[author]
+name = "Kellen Frodelius-Fujimoto"
+
+[blackfriday]
+hrefTargetBlank = true
+
+[taxonomies]
+tag = "tags"
+category = "categories"
 
 [params]
 author = "Kellen Frodelius-Fujimoto"
-description = "Recently moved from Seattle, WA, USA to Duisburg, NRW. Thoughts on Rust, apps, and life."
+description = "Recently moved from Seattle, WA, USA to Duisburg, NRW, Germany. Thoughts on Rust, apps, and life."
+homeSubtitle = "Rust && Python aus NRW"
+footerCopyright = "&copy; 2018. All rights reserved."
 keywords = ["rust", "expat", "nrw"]
-DateFormat = "2 Jan 2006"
-colorScheme = "scheme-slate"
+dateform = "2 Jan 2006"
+dateformShort = "2 Jan"
+dateformNum = "2006-01-02"
+dateformNumTime = "2006-01-02T15:04-0700"
+
+[[params.social]]
+name = "twitter"
+url = "https://twitter.com/kellenfu"
+
+[[params.social]]
+name = "instagram"
+url = "https://instagram.com/kellenfu"
+
+[[params.social]]
+name = "gitlab"
+url = "https://gitlab.com/rakenodiax"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/rakenodiax"
+
+[[params.social]]
+name = "email"
+url = "mailto:kellen@kellenfujimoto.com"
+
+[menu]
+[[menu.main]]
+name = "Posts"
+weight = 2
+identifier = "posts"
+url = "/posts/"
+[[menu.main]]
+name = "Projects"
+weight = 3
+identifier = "projects"
+url = "/projects/"
+[[menu.main]]
+name = "About"
+weight = 4
+identifier = "about"
+url = "/about/"
