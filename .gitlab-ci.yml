@@ -1,7 +1,4 @@
-image: klakegg/hugo:ext-debian-onbuild
-
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
+image: monachus/hugo
 
 pages:
   script:
