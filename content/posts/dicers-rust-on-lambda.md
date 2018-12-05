@@ -1,8 +1,15 @@
 ---
 title: "Dice.rs: Rust on Lambda"
 date: 2018-12-02T14:18:59+01:00
-tags: [ "rust", "aws", "lambda" ]
-categories: [ "programming" ]
+tags: 
+    - rust
+    - aws
+    - lambda
+    - walkthrough
+categories:
+    - programming
+aliases:
+    - "/post/dicers-rust-on-lambda/"
 draft: false
 ---
 
