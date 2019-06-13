@@ -20,26 +20,14 @@ category = "categories"
 
 [params]
 author = "Kellen Frodelius-Fujimoto"
-description = "Recently moved from Seattle, WA, USA to Duisburg, NRW, Germany. Thoughts on Rust, apps, and life."
-homeSubtitle = "Rust && Python aus NRW"
-footerCopyright = "&copy; 2018. All rights reserved."
-keywords = ["rust", "expat", "nrw"]
+description = "Full-stack Typescript developer by day && Rust hacker by night"
+homeSubtitle = "Full-stack Typescript • Duisburg"
+footerCopyright = "&copy; 2019. All rights reserved."
+keywords = ["rust", "typescript", "full stack", "developer", "duisburg"]
 dateform = "2 Jan 2006"
 dateformShort = "2 Jan"
 dateformNum = "2006-01-02"
 dateformNumTime = "2006-01-02T15:04-0700"
-
-[[params.social]]
-name = "twitter"
-url = "https://twitter.com/kellenfu"
-
-[[params.social]]
-name = "instagram"
-url = "https://instagram.com/kellenfu"
-
-[[params.social]]
-name = "gitlab"
-url = "https://gitlab.com/rakenodiax"
 
 [[params.social]]
 name = "github"
