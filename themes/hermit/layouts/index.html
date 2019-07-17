@@ -27,4 +27,5 @@
 
 {{ define "footer" }}
 	<script>let haveHeader = false;</script>
+  {{ partialCached "analytics" . }}
 {{ end }}
