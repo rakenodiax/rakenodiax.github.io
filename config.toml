@@ -21,9 +21,9 @@ category = "categories"
 [params]
 author = "Kellen Frodelius-Fujimoto"
 description = "Full-stack Typescript developer by day && Rust hacker by night"
-homeSubtitle = "Full-stack Typescript • Duisburg"
+homeSubtitle = "Full-stack Typescript"
 footerCopyright = "&copy; 2019. All rights reserved."
-keywords = ["rust", "typescript", "full stack", "developer", "duisburg"]
+keywords = ["rust", "typescript", "full stack", "developer"]
 dateform = "2 Jan 2006"
 dateformShort = "2 Jan"
 dateformNum = "2006-01-02"
