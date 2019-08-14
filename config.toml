@@ -1,7 +1,7 @@
 baseURL = "https://kellenfujimoto.com/"
 languageCode = "en-us"
 title = "Kellen Frodelius-Fujimoto"
-theme = "hermit"
+theme = "m10c"
 copyright = "&copy; 2018. All rights reserved."
 canonifyurls = true
 paginate = 10
@@ -20,6 +20,7 @@ category = "categories"
 
 [params]
 author = "Kellen Frodelius-Fujimoto"
+avatar = "avatar.jpg"
 description = "Full-stack Typescript developer by day && Rust hacker by night"
 homeSubtitle = "Full-stack Typescript"
 footerCopyright = "&copy; 2019. All rights reserved."
@@ -34,7 +35,7 @@ name = "github"
 url = "https://github.com/rakenodiax"
 
 [[params.social]]
-name = "email"
+name = "mail"
 url = "mailto:kellen@kellenfujimoto.com"
 
 [menu]
