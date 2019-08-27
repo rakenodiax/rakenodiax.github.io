@@ -1,10 +1,20 @@
 ---
 title: "Strongly Typed Google Analytics Events with Typescript"
 date: 2019-08-26T18:38:22+02:00
+tags:
+  - typescript
+  - analytics
+  - demo
+  - events
+categories:
+  - programming
+  - mealspotter
 draft: true
 ---
 
-While Google Analytics' page view statitics are quite a powerful way to track web site performance, sometimes there are actions that occur *within* a page view which are business critical to know about and monitor. Using <abbr title="Google Analytics">GA</abbr>'s Events API, you can track interactions, impressions, and so much more.
+For [MealSpotter](https://www.mealspotter.de), we use [Google Analytics Events](https://support.google.com/analytics/answer/1033068?hl=en) to help us better understand how well Deals are performing, and bring that insight to our restaurant partners. Ensuring that our analytics data are clean helps us to work with our partners to bring even better deals to our users.
+
+This post will go into how to define an Events schema using Typescript, using a simplified example of the method we use at MealSpotter.
 
 Each event contains the following data:
 
@@ -23,8 +33,8 @@ This example uses a similar pattern to Redux with Typescript: You take a broad t
 
 Let's say we want to use events to track how often a user clicks on boxes of various colors. We have a simple component for a Box:
 
-#### `src/box.tsx`
-{{< highlight typescript "linenos=table" >}}
+```tsx
+/* src/box.tsx */
 import React from 'react';
 // type Color = 'red' | 'green' | 'blue';
 import Color from './color';
@@ -53,12 +63,12 @@ export const Box: React.FC<Props> = ({ color, onClick }) => (
     </p>
   </div>
 );
-{{< / highlight >}}
+```
 
 And we render a box for each color in our App:
 
-#### `src/app.tsx`
-{{< highlight typescript "linenos=table" >}}
+```tsx
+/* src/app.tsx */
 import React from 'react';
 import Box from './box';
 import Color from './color';
@@ -85,14 +95,14 @@ const App: React.FC = () => {
 };
 
 export default App;
-{{< / highlight >}}
+```
 
 ### Implementing Events
 
 Now that we have the components set up, we can move onto the events. Assuming we have a simple facade to interface with GA:
 
-#### `src/analytics-facade/i-analytics-facade.ts`
-{{< highlight typescript "linenos=table" >}}
+```typescript
+/* src/analytics-facade/i-analytics-facade.ts */
 export interface IAnalyticsEvent {
   category: string;
   action: string;
@@ -103,12 +113,12 @@ export interface IAnalyticsEvent {
 export interface IAnalyticsFacade<T extends IAnalyticsEvent> {
   sendEvent(event: T): void;
 }
-{{< / highlight >}}
+```
 
 Since we're currently only tracking one "action" &mdash; clicking a box &mdash; our event type is pretty simple:
 
-#### `src/events.ts`
-{{< highlight typescript "linenos=table" >}}
+```typescript
+/* src/events.ts */
 import { IAnalyticsEvent } from "./analytics-facade/i-analytics-facade";
 import Color from "./color";
 
@@ -117,23 +127,24 @@ export type BoxClickEvent = IAnalyticsEvent & {
   action: 'click',
   label: Color,
 };
-{{< / highlight >}}
+```
 
 On line 4 we're taking the `IAnalyticsEvent` and *narrowing* it to specific types for `category`, `action`, and `label`. Now let's write a helper function to create new events from colors:
 
-#### `src/events.ts`
-{{< highlight typescript "linenos=table,linenostart=10" >}}
+```typescript
+/* src/events.ts */
+// ...
 export const boxClick = (color: Color): BoxClickEvent => ({
   category: 'box',
   action: 'click',
   label: color,
 });
-{{< / highlight >}}
+```
 
 Writing a simple class which can handle only our events ensures that only events which comply with our event schema are sent to GA:
 
-#### `src/analytics-facade/analytics-facade.ts`
-{{< highlight typescript "linenos=table">}}
+```typescript
+/* src/analytics-facade/analytics-facade.ts */
 import { IAnalyticsFacade } from "./i-analytics-facade";
 import { BoxClickEvent } from "../events";
 
@@ -143,14 +154,15 @@ export class AnalyticsFacade implements IAnalyticsFacade<BoxClickEvent> {
     console.debug(event);
   }
 }
-{{< / highlight >}}
+```
 
 ### Adding another event
 
 Clicks are great, but normally there are multiple events which need to be tracked. Let's add another event for when a box is displayed (an impression):
 
-#### `src/events.ts`
-{{< highlight typescript "linenos=table,linenostart=16">}}
+```typescript
+/* src/events.ts */
+// ...
 export type BoxImpressionEvent = IAnalyticsEvent & {
   category: 'box',
   action: 'impression',
@@ -162,30 +174,32 @@ export const boxImpression = (color: Color): BoxImpressionEvent => ({
   action: 'impression',
   label: color,
 });
-{{< / highlight >}}
+```
 
 We can wrap up all of our event types into a union type to use with our `AnalyticsFacade`:
 
-#### `src/events.ts`
-{{< highlight typescript "linenos=table,linenostart=28">}}
+```typescript
+/* src/events.ts */
+// ...
 export type AppEvent = BoxClickEvent | BoxImpressionEvent;
-{{< / highlight >}}
+```
 
-#### `src/analytics-facade/analytics-facade.ts`
-{{< highlight typescript "linenos=table,hl_lines=1,linenostart=4">}}
+```typescript
+/* src/analytics-facade/analytics-facade.ts */
+// ...
 export class AnalyticsFacade implements IAnalyticsFacade<AppEvent> {
   public sendEvent(event: AppEvent): void {
     console.debug(event);
   }
 }
-{{< / highlight >}}
+```
 
 ### Going beyond
 
 As your events grow, it's useful to split the event type definitions and event creators into their own modules. Even further down the line, defining common properties as an `enum` of strings, or consolidating common collections into their own intermediate types, can make the code more clear. A contrived example with these two events could look something like this:
 
-#### `src/events/types.ts`
-{{< highlight typescript "linenos=table">}}
+```typescript
+/* src/events/types.ts */
 import { IAnalyticsEvent } from "../analytics-facade/i-analytics-facade";
 import Color from "../color";
 
@@ -234,10 +248,10 @@ export type BoxClickEvent = BoxEvent & {
 export type BoxImpressionEvent = BoxEvent & {
   action: BoxAction.Impression,
 };
-{{< / highlight >}}
+```
 
-#### `src/events/creators.ts`
-{{< highlight typescript "linenos=table">}}
+```typescript
+/* src/events/creators.ts */
 import { BoxClickEvent, BoxImpressionEvent, EventCategory, BoxAction } from "./types";
 import Color from "../color";
 
@@ -252,7 +266,7 @@ export const boxImpression = (color: Color): BoxImpressionEvent => ({
   action: BoxAction.Impression,
   label: color,
 });
-{{< / highlight >}}
+```
 
 ## Conclusion
 

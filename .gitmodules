@@ -5,3 +5,6 @@
 	path = themes/terminal
 	url = https://github.com/panr/hugo-theme-terminal.git
 
+[submodule "hello-friend"]
+	path = themes/hello-friend
+	url = https://github.com/panr/hugo-theme-hello-friend.git
