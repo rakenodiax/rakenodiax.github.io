@@ -47,13 +47,3 @@ name = "Posts"
 weight = 2
 identifier = "posts"
 url = "/posts/"
-[[menu.main]]
-name = "Projects"
-weight = 3
-identifier = "projects"
-url = "/projects/"
-[[menu.main]]
-name = "About"
-weight = 4
-identifier = "about"
-url = "/about/"
