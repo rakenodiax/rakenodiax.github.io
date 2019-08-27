@@ -9,7 +9,7 @@ tags:
 categories:
   - programming
   - mealspotter
-draft: true
+draft: false
 ---
 
 For [MealSpotter](https://www.mealspotter.de), we use [Google Analytics Events](https://support.google.com/analytics/answer/1033068?hl=en) to help us better understand how well Deals are performing, and bring that insight to our restaurant partners. Ensuring that our analytics data are clean helps us to work with our partners to bring even better deals to our users.
