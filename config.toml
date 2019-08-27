@@ -1,7 +1,7 @@
 baseURL = "https://kellenfujimoto.com/"
 languageCode = "en-us"
 title = "Kellen Frodelius-Fujimoto"
-theme = "m10c"
+theme = "hello-friend"
 copyright = "&copy; 2018. All rights reserved."
 canonifyurls = true
 paginate = 10
@@ -29,6 +29,9 @@ dateform = "2 Jan 2006"
 dateformShort = "2 Jan"
 dateformNum = "2006-01-02"
 dateformNumTime = "2006-01-02T15:04-0700"
+fullWidthTheme = false
+centerTheme = true
+defaultTheme = "dark"
 
 [[params.social]]
 name = "github"
