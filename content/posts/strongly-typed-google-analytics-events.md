@@ -272,4 +272,4 @@ export const boxImpression = (color: Color): BoxImpressionEvent => ({
 
 Ensuring that GA data is structured and conforming to a specific schema can be business critical, and can save having to painstakingly fix or throw out valuable data. Leveraging Typescript to ensure that code cannot send incorrect data is another line of defense which I can recommend.
 
-Feedback, questions, and comments are always welcome! You can find me [on Twitter](https://twitter.com/kellenfu). Happy coding!
+Feedback, questions, and comments are always welcome! You can find me [on Twitter](https://twitter.com/rakenodiax). Happy coding!
