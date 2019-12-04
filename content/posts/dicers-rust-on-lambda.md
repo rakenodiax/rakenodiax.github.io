@@ -36,7 +36,7 @@ $ ls -a
 
 I'm going to expose the phrase generator as a dictionary which implements an `Iterator`, from which the user can `take` however many words needed for the phrase. Iterators also provide a nice way to seed and add to the dictionary. The Rust standard library includes traits for both of these features: `FromIterator` and `Extend`; we'll write two quick tests to describe this behavior:
 
-{{< highlight rust "linenos=table" >}}
+{{< highlight rust >}}
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -68,7 +68,7 @@ mod tests {
 
 `cargo test` prompts us to create a `Dictionary` struct and import `HashSet`. We can derive some basic traits for `Dictionary` while we're at it:
 
-{{< highlight rust "linenos=table" >}}
+{{< highlight rust >}}
 use std::collections::HashSet;
 
 #[derive(Debug, Default, Clone, PartialEq)]
@@ -79,14 +79,14 @@ pub struct Dictionary {
 
 Now `cargo test` leads us to import the appropriate traits so they can be used:
 
-{{< highlight rust "linenos=table,hl_lines=2" >}}
+{{< highlight rust >}}
 use std::collections::HashSet;
 use std::iter::{Extend, FromIterator};
 {{< / highlight >}}
 
 Implementing `Extend` and `FromIterator` is incredibly easy, as the underlying `HashSet` implements them:
 
-{{< highlight rust "linenos=table,linenostart=9" >}}
+{{< highlight rust >}}
 impl<S> FromIterator<S> for Dictionary
 where
     S: ToString,
@@ -122,7 +122,7 @@ test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 
 Now we'll implement `Iterator` for `Dictionary`. This iterator will return a random word each time `next` is called. First things first, we'll write a test that exercises this behavior:
 
-{{< highlight rust "linenos=table,linenostart=56" >}}
+{{< highlight rust >}}
 #[test]
 fn dictionary_can_be_iterated_over() {
     let word = "foo";
@@ -137,10 +137,10 @@ fn dictionary_can_be_iterated_over() {
 
 Each time the dictionary is iterated over, a separate RNG will be instantiated. A `DictionaryIterator` struct contains a borrow of the `Dictionary.words`, and the RNG:
 
-{{< highlight rust "linenos=table" >}}
+{{< highlight rust  >}}
 use rand::prelude::*;
 {{< / highlight >}}
-{{< highlight rust "linenos=table,linenostart=30">}}
+{{< highlight rust >}}
 impl Dictionary {
     pub fn iter(&self) -> DictionaryIterator {
         DictionaryIterator::new(&self.words)
@@ -189,7 +189,7 @@ let four = dictionary.iter().take(4);
 
 In actual use, the `Dictionary` needs to be seeded with a given set of words. We'll store this in a text file, with each line being a word in the dictionary, and add support to read any string in this format and create a `Dictionary` from it:
 
-{{< highlight rust "linenos=table,linenostart=13" >}}
+{{< highlight rust >}}
 impl Dictionary {
     pub fn read_str(input: &str) -> Dictionary {
         // `String.lines` implements `Iterator`, so we can use it directly with `FromIterator`
@@ -209,14 +209,14 @@ serde_derive = "1.0.80"
 
 We'll implement the API in a separate module: create `src/api.rs` and declare the module in `src/lib.rs`:
 
-{{< highlight rust "linenos=table,linenostart=5" >}}
+{{< highlight rust >}}
 mod api;
 pub use self::api::handler;
 {{< / highlight >}}
 
 We'll start with the request and response structs, in `src/api.rs`:
 
-{{< highlight rust "linenos=table" >}}
+{{< highlight rust >}}
 use serde_derive::{Deserialize, Serialize};
 
 #[derive(Debug, Deserialize)]
@@ -233,10 +233,10 @@ pub struct GenerateResponse {
 
 The business logic is simple enough that we can just implement it directly in the handler function used by Lambda.
 
-{{< highlight rust "linenos=table" >}}
+{{< highlight rust >}}
 use super::Dictionary;
 {{< / highlight >}}
-{{< highlight rust "linenos=table,linenostart=17" >}}
+{{< highlight rust >}}
 pub fn handler(event: GenerateEvent, _ctx: Context) -> Result<GenerateResponse, HandlerError> {
     match event {
         GenerateEvent {
@@ -267,7 +267,7 @@ pub fn handler(event: GenerateEvent, _ctx: Context) -> Result<GenerateResponse, 
 
 This implementation can definitely be cleaned up; there's the repeated logic of reading the dictionary file, along with `unwrap`, which means that the function *could* panic at runtime. We can clean this up by using the `lazy_static` crate:
 
-{{< highlight rust "linenos=table,linenostart=3,hl_lines=1 4-7" >}}
+{{< highlight rust >}}
 use lazy_static::lazy_static;
 use serde_derive::{Deserialize, Serialize};
 
@@ -281,7 +281,7 @@ lazy_static! {
 
 The dictionary will now be instantiated the first time it's used. Let's use the dictionary in our handler:
 
-{{< highlight rust "linenos=table,linenostart=22,hl_lines=7 17" >}}
+{{< highlight rust >}}
 pub fn handler(event: GenerateEvent, _ctx: Context) -> Result<GenerateResponse, HandlerError> {
     match event {
         GenerateEvent {
@@ -309,7 +309,7 @@ pub fn handler(event: GenerateEvent, _ctx: Context) -> Result<GenerateResponse, 
 
 The `lambda_runtime` crate provides a macro for exposing a handler function to Lambda. The complete `main.rs` file:
 
-{{< highlight rust "linenos=table" >}}
+{{< highlight rust >}}
 use dicers::handler;
 use lambda_runtime::lambda;
 
