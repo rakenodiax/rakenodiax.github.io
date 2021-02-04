@@ -33,7 +33,7 @@ This example uses a similar pattern to Redux with Typescript: You take a broad t
 
 Let's say we want to use events to track how often a user clicks on boxes of various colors. We have a simple component for a Box:
 
-```tsx
+{{<highlight tsx "linenos=table,linenostart=0" >}}
 /* src/box.tsx */
 import React from 'react';
 // type Color = 'red' | 'green' | 'blue';
@@ -63,11 +63,11 @@ export const Box: React.FC<Props> = ({ color, onClick }) => (
     </p>
   </div>
 );
-```
+{{< / highlight >}}
 
 And we render a box for each color in our App:
 
-```tsx
+{{<highlight tsx "linenos=table,linenostart=0" >}}
 /* src/app.tsx */
 import React from 'react';
 import Box from './box';
@@ -95,13 +95,13 @@ const App: React.FC = () => {
 };
 
 export default App;
-```
+{{< / highlight >}}
 
 ### Implementing Events
 
 Now that we have the components set up, we can move onto the events. Assuming we have a simple facade to interface with GA:
 
-```typescript
+{{<highlight tsx "linenos=table,linenostart=0" >}}
 /* src/analytics-facade/i-analytics-facade.ts */
 export interface IAnalyticsEvent {
   category: string;
@@ -113,11 +113,11 @@ export interface IAnalyticsEvent {
 export interface IAnalyticsFacade<T extends IAnalyticsEvent> {
   sendEvent(event: T): void;
 }
-```
+{{< / highlight >}}
 
 Since we're currently only tracking one "action" &mdash; clicking a box &mdash; our event type is pretty simple:
 
-```typescript
+{{<highlight tsx "linenos=table,linenostart=0" >}}
 /* src/events.ts */
 import { IAnalyticsEvent } from "./analytics-facade/i-analytics-facade";
 import Color from "./color";
@@ -127,11 +127,11 @@ export type BoxClickEvent = IAnalyticsEvent & {
   action: 'click',
   label: Color,
 };
-```
+{{< / highlight >}}
 
 On line 4 we're taking the `IAnalyticsEvent` and *narrowing* it to specific types for `category`, `action`, and `label`. Now let's write a helper function to create new events from colors:
 
-```typescript
+{{<highlight tsx "linenos=table,linenostart=8" >}}
 /* src/events.ts */
 // ...
 export const boxClick = (color: Color): BoxClickEvent => ({
@@ -139,11 +139,11 @@ export const boxClick = (color: Color): BoxClickEvent => ({
   action: 'click',
   label: color,
 });
-```
+{{< / highlight >}}
 
 Writing a simple class which can handle only our events ensures that only events which comply with our event schema are sent to GA:
 
-```typescript
+{{<highlight tsx "linenos=table,linenostart=0" >}}
 /* src/analytics-facade/analytics-facade.ts */
 import { IAnalyticsFacade } from "./i-analytics-facade";
 import { BoxClickEvent } from "../events";
@@ -154,13 +154,13 @@ export class AnalyticsFacade implements IAnalyticsFacade<BoxClickEvent> {
     console.debug(event);
   }
 }
-```
+{{< / highlight >}}
 
 ### Adding another event
 
 Clicks are great, but normally there are multiple events which need to be tracked. Let's add another event for when a box is displayed (an impression):
 
-```typescript
+{{<highlight tsx "linenos=table,linenostart=14" >}}
 /* src/events.ts */
 // ...
 export type BoxImpressionEvent = IAnalyticsEvent & {
@@ -174,17 +174,17 @@ export const boxImpression = (color: Color): BoxImpressionEvent => ({
   action: 'impression',
   label: color,
 });
-```
+{{< / highlight >}}
 
 We can wrap up all of our event types into a union type to use with our `AnalyticsFacade`:
 
-```typescript
+{{<highlight tsx "linenos=table,linenostart=26" >}}
 /* src/events.ts */
 // ...
 export type AppEvent = BoxClickEvent | BoxImpressionEvent;
-```
+{{< / highlight >}}
 
-```typescript
+{{<highlight tsx "linenos=table,hl_lines=[3],linenostart=2" >}}
 /* src/analytics-facade/analytics-facade.ts */
 // ...
 export class AnalyticsFacade implements IAnalyticsFacade<AppEvent> {
@@ -192,13 +192,13 @@ export class AnalyticsFacade implements IAnalyticsFacade<AppEvent> {
     console.debug(event);
   }
 }
-```
+{{< / highlight >}}
 
 ### Going beyond
 
 As your events grow, it's useful to split the event type definitions and event creators into their own modules. Even further down the line, defining common properties as an `enum` of strings, or consolidating common collections into their own intermediate types, can make the code more clear. A contrived example with these two events could look something like this:
 
-```typescript
+{{<highlight tsx "linenos=table,linenostart=0" >}}
 /* src/events/types.ts */
 import { IAnalyticsEvent } from "../analytics-facade/i-analytics-facade";
 import Color from "../color";
@@ -248,9 +248,9 @@ export type BoxClickEvent = BoxEvent & {
 export type BoxImpressionEvent = BoxEvent & {
   action: BoxAction.Impression,
 };
-```
+{{< / highlight >}}
 
-```typescript
+{{<highlight tsx "linenos=table,linenostart=0" >}}
 /* src/events/creators.ts */
 import { BoxClickEvent, BoxImpressionEvent, EventCategory, BoxAction } from "./types";
 import Color from "../color";
@@ -266,7 +266,7 @@ export const boxImpression = (color: Color): BoxImpressionEvent => ({
   action: BoxAction.Impression,
   label: color,
 });
-```
+{{< / highlight >}}
 
 ## Conclusion
 

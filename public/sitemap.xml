@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://kellenfujimoto.com/tags/analytics/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/categories/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/tags/demo/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/tags/events/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/categories/mealspotter/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/posts/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/categories/programming/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/posts/strongly-typed-google-analytics-events/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/tags/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/tags/typescript/</loc>
+    <lastmod>2019-08-26T18:38:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/tags/aws/</loc>
+    <lastmod>2018-12-02T14:18:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/posts/dicers-rust-on-lambda/</loc>
+    <lastmod>2018-12-02T14:18:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/tags/lambda/</loc>
+    <lastmod>2018-12-02T14:18:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/tags/rust/</loc>
+    <lastmod>2018-12-02T14:18:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kellenfujimoto.com/tags/walkthrough/</loc>
+    <lastmod>2018-12-02T14:18:59+01:00</lastmod>
+  </url>
+  
+</urlset>

@@ -335,13 +335,13 @@ $ ln -s /usr/local/bin/x86_64-linux-musl-gcc /usr/local/bin/musl-gcc
 
 And add the following configuration file, located at `.cargo/config`:
 
-```
+{{< highlight toml >}}
 [build]
 target = "x86_64-unknown-linux-musl"
 
 [target.x86_64-unknown-linux-musl]
 linker = "x86_64-linux-musl-gcc"
-```
+{{< / highlight >}}
 
 This will tell `cargo` to build for the appropriate target, and use the linker we just installed. Now we can build and publish the Lambda function using the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html):
 

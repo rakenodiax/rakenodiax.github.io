@@ -8,3 +8,18 @@
 [submodule "hello-friend"]
 	path = themes/hello-friend
 	url = https://github.com/panr/hugo-theme-hello-friend.git
+[submodule "themes/tale"]
+	path = themes/tale
+	url = https://github.com/EmielH/tale-hugo.git
+[submodule "themes/kellenfujimoto"]
+	path = themes/kellenfujimoto
+	url = git@github.com:rakenodiax/blank.git
+[submodule "themes/eureka"]
+	path = themes/eureka
+	url = https://github.com/wangchucheng/hugo-eureka.git
+[submodule "themes/dimension"]
+	path = themes/dimension
+	url = https://github.com/your-identity/hugo-theme-dimension.git
+[submodule "themes/papermod"]
+	path = themes/papermod
+	url = git@github.com:adityatelange/hugo-PaperMod.git

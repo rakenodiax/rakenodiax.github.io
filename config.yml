@@ -1,0 +1,61 @@
+baseURL: 'https://kellenfujimoto.com/'
+languageCode: en-us
+title: Kellen Frodelius-Fujimoto
+theme: papermod
+canonifyurls: true
+paginate: 10
+copyright: >-
+  &copy; 2020 <a href="https://kellenfujimoto.com/">Kellen
+  Frodelius-Fujimoto</a>
+enableEmoji: true
+enableGitInfo: false
+summaryLength: 75
+defaultContentLanguage: en
+hasCJKLanguage: false
+defaultContentLanguageInSubdir: false
+params:
+  author: Kellen Frodelius-Fujimoto
+  description: Full-stack web developer in the Seattle area
+  keywords:
+    - rust
+    - typescript
+    - full stack
+    - developer
+  dateform: 2 Jan 2006
+  dateformShort: 2 Jan
+  dateformNum: '2006-01-02'
+  dateformNumTime: '2006-01-02T15:04-0700'
+  defaultTheme: dark
+  contentTypeName: posts
+  showReadingTime: true
+  showShareButtons: true
+  showToc: true
+  showPostNavLinks: true
+  homeInfoParams:
+    Title: Hi there!
+    Content: I'm a full-stack web developer in the Seattle area
+  socialIcons:
+    - name: Twitter
+      url: https://twitter.com/rakenodiax
+    - name: GitHub
+      url: https://github.com/rakenodiax
+    - name: StackOverflow
+      url: https://stackoverflow.com/story/rakenodiax
+    - name: Email
+      url: mailto:hello@kellenfujimoto.com
+  fuseOpts:
+    keys: ["title", "summary", "content"]
+  analytics:
+    google:
+      SiteVerificationTag: "UA-42768837-1"
+menu:
+  main:
+    - name: Posts
+      weight: 2
+      identifier: posts
+      url: /posts/
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
