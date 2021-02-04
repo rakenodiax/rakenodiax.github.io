@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kellen Frodelius-Fujimoto</title>
+    <link>rakenodiax.github.io/</link>
+    <description>Recent content on Kellen Frodelius-Fujimoto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2020 &lt;a href=&#34;https://kellenfujimoto.com/&#34;&gt;Kellen Frodelius-Fujimoto&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 26 Aug 2019 18:38:22 +0200</lastBuildDate><atom:link href="rakenodiax.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Strongly Typed Google Analytics Events with Typescript</title>
+      <link>rakenodiax.github.io/posts/strongly-typed-google-analytics-events/</link>
+      <pubDate>Mon, 26 Aug 2019 18:38:22 +0200</pubDate>
+      
+      <guid>rakenodiax.github.io/posts/strongly-typed-google-analytics-events/</guid>
+      <description>For MealSpotter, we use Google Analytics Events to help us better understand how well Deals are performing, and bring that insight to our restaurant partners. Ensuring that our analytics data are clean helps us to work with our partners to bring even better deals to our users.
+This post will go into how to define an Events schema using Typescript, using a simplified example of the method we use at MealSpotter.
+Each event contains the following data:</description>
+    </item>
+    
+    <item>
+      <title>Dice.rs: Rust on Lambda</title>
+      <link>rakenodiax.github.io/posts/dicers-rust-on-lambda/</link>
+      <pubDate>Sun, 02 Dec 2018 14:18:59 +0100</pubDate>
+      
+      <guid>rakenodiax.github.io/posts/dicers-rust-on-lambda/</guid>
+      <description>Rust support on AWS Lambda was recently released, which seems like as good an opportunity as any to share some code and the solutions to challenges I encountered along the way ☺. I&amp;rsquo;ve decided to create a little diceware service, and the lambda-runtime crate provides a great API to make this a breeze.
+Setting up the library We&amp;rsquo;re going to generate a basic crate:
+$ cargo new dicers --lib &amp;amp;&amp;amp; cd dicers Created library `dicers` project You should see a structure similar to this:</description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>rakenodiax.github.io/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>rakenodiax.github.io/search/</guid>
+      <description>search</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>events on Kellen Frodelius-Fujimoto</title>
+    <link>rakenodiax.github.io/tags/events/</link>
+    <description>Recent content in events on Kellen Frodelius-Fujimoto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2020 &lt;a href=&#34;https://kellenfujimoto.com/&#34;&gt;Kellen Frodelius-Fujimoto&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 26 Aug 2019 18:38:22 +0200</lastBuildDate><atom:link href="rakenodiax.github.io/tags/events/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Strongly Typed Google Analytics Events with Typescript</title>
+      <link>rakenodiax.github.io/posts/strongly-typed-google-analytics-events/</link>
+      <pubDate>Mon, 26 Aug 2019 18:38:22 +0200</pubDate>
+      
+      <guid>rakenodiax.github.io/posts/strongly-typed-google-analytics-events/</guid>
+      <description>For MealSpotter, we use Google Analytics Events to help us better understand how well Deals are performing, and bring that insight to our restaurant partners. Ensuring that our analytics data are clean helps us to work with our partners to bring even better deals to our users.
+This post will go into how to define an Events schema using Typescript, using a simplified example of the method we use at MealSpotter.
+Each event contains the following data:</description>
+    </item>
+    
+  </channel>
+</rss>
